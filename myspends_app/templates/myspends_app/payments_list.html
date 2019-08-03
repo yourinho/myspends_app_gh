@@ -1,0 +1,33 @@
+<h1> {{ payments_owner }} payments list</h1>
+{% if payments_context %}
+    <ul>
+        {% for payment in payments_context %}
+        <li><a href="/myspends_app/payment_details/{{ payment.id }}/">{{ payment.spend_text }} {{ payment.spend_value }} {{ payment.spend_date }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No payments</p>
+{% endif %}
+{% if summary %}
+    <p>Summary: {{ summary }}</p>
+{% endif %}
+<input type="button" onclick="window.location.href = '/myspends_app/new_payment/';" value="new payment"/>
+<h2>Filters</h2>
+<div>
+    <a href="/myspends_app/payments_list/?date_preset=today">today</a>
+    <a href="/myspends_app/payments_list/?date_preset=yesterday">yesterday</a>
+</div>
+<div>
+    <a href="/myspends_app/payments_list/?date_preset=current_week">current week</a>
+    <a href="/myspends_app/payments_list/?date_preset=previous_week">previous week</a>
+</div>
+<div>
+    <a href="/myspends_app/payments_list/?date_preset=current_month">current month</a>
+    <a href="/myspends_app/payments_list/?date_preset=previous_month">previous month</a>
+</div>
+<div>
+    <a href="/myspends_app/payments_list/?date_preset=lifetime">lifetime</a>
+</div>
+<div>
+    <input type="date" name="start_of_period">
+</div>

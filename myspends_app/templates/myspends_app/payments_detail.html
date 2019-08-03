@@ -1,0 +1,8 @@
+{% if payment_details %}
+    <h1>Payment {{ payment_details.id }} details</h1>
+    <p>{{ payment_details.spend_text }}</p>
+    <p>{{ payment_details.spend_value }}</p>
+    <p>{{ payment_details.spend_date }}</p>
+<input type="button" onclick="window.location.href = '/myspends_app/edit_payment/{{ payment_details.id }}/';" value="edit payment"/>
+<input type="button" onclick="window.location.href = '/myspends_app/delete_payment/{{ payment_details.id }}/';" value="delete payment"/>
+{% endif %}
